@@ -1,17 +1,20 @@
 package osvaldas.games.impl;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import osvaldas.games.interfaces.Game;
 import osvaldas.games.interfaces.MessageGenerator;
 
 import javax.annotation.PostConstruct;
 
 @Slf4j
+@Component
+@RequiredArgsConstructor
 public class MessageGeneratorImpl implements MessageGenerator {
 
-    @Autowired
-    private Game game;
+    private final Game game;
 
     @PostConstruct
     public void init() {

@@ -1,7 +1,7 @@
 package osvaldas.games.console;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -12,13 +12,11 @@ import java.util.Scanner;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class ConsoleNumberGuess {
 
-    @Autowired
-    private Game game;
-
-    @Autowired
-    private MessageGenerator messageGenerator;
+    private final Game game;
+    private final MessageGenerator messageGenerator;
 
     @EventListener()
     public void start(ContextRefreshedEvent contextRefreshedEvent) {

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import osvaldas.games.service.GameService;
@@ -13,8 +14,8 @@ import osvaldas.games.util.GameMappings;
 import osvaldas.games.util.ViewNames;
 
 @Slf4j
-@Controller
 @AllArgsConstructor
+@Controller
 public class GameController {
 
     private final GameService gameService;
@@ -36,6 +37,12 @@ public class GameController {
     public String processMessage(@RequestParam int guess) {
         log.info("guess = {}", guess);
         gameService.checkGuess(guess);
+        return GameMappings.REDIRECT_PLAY;
+    }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart() {
+        gameService.reset();
         return GameMappings.REDIRECT_PLAY;
     }
 }

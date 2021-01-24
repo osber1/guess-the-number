@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: headFragment}">
     <meta charset="UTF-8">
-    <title>Game</title>
+    <title>Game Finished</title>
 </head>
 <body>
 <div align="center"
      th:with="play=${T(osvaldas.games.util.GameMappings).PLAY},
-     mainMsg=${T(osvaldas.games.util.AttributeNames).MAIN_MESSAGE},
+     restart=${T(osvaldas.games.util.GameMappings).RESTART},
+     home=${T(osvaldas.games.util.GameMappings).HOME},
      resultMsg=${T(osvaldas.games.util.AttributeNames).RESULT_MESSAGE}">
     <h1>Guess the Number Game</h1>
-    <h3 th:text="${__${mainMsg}__}">
-        Main Message Content
-    </h3>
+    <h2>Game Over</h2>
     <h3 th:text="${__${resultMsg}__}">
         Result Message Content
     </h3>
-
-    <form th:action="@{__${play}__}"
-          action="play"
-          method="post">
-        <label for="guess">Enter your guess</label>
-        <input id="guess" type="number" name="guess"/>
-        <input type="submit" value="Submit"/>
-    </form>
+    <h3>
+        <a th:href="@{__${restart}__}">
+            Play Again
+        </a>
+    </h3>
+    <h3>
+        <a th:href="@{__${home}__}">
+            Home
+        </a>
+    </h3>
 
     <footer th:replace="~{fragments/footer :: footer}">
         <p>Footer goes here</p>

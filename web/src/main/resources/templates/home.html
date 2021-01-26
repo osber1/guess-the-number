@@ -1,20 +1,21 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html>
+<head id="headId">
     <meta charset="UTF-8">
     <title>Title Content</title>
 </head>
 <body>
-<div align="center" th:with="play=${T(osvaldas.games.util.GameMappings).PLAY}">
-    <h1>Welcome to Guess the Number Game</h1>
+<div align="center" id="init-props">
+    <h1 id="title">Welcome to Guess the Number Game</h1>
     <h3>
-        <a th:href="@{__${play}__}"
-           th:text="Play"
+        <a id="game-form"
         href="play.html">
             Click to Play
         </a>
     </h3>
-    <div th:replace="~{fragments/footer :: footer}">Footer goes here</div>
+    <div id="footerId">
+        Footer goes here
+    </div>
 </div>
 </body>
 </html>

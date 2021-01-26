@@ -1,0 +1,13 @@
+<thlogic>
+    <attr sel="#headId" th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#game-title" th:text="#{game.title}"/>
+    <attr sel="#init-props" th:with="play=${T(osvaldas.games.util.GameMappings).PLAY},
+     mainMsg=${T(osvaldas.games.util.AttributeNames).MAIN_MESSAGE},
+     resultMsg=${T(osvaldas.games.util.AttributeNames).RESULT_MESSAGE}"/>
+    <attr sel="#main-message" th:text="${__${mainMsg}__}"/>
+    <attr sel="#result-message" th:text="${__${resultMsg}__}"/>
+    <attr sel="#game-form" th:action="@{__${play}__}"/>
+    <attr sel="#enter-guess" th:text="#{game.enter.guess}"/>
+    <attr sel="#submit" th:value="#{game.submit}"/>
+    <attr sel="#footerId" th:replace="~{fragments/footer :: footer}"/>
+</thlogic>

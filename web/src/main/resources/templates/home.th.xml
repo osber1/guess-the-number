@@ -1,0 +1,7 @@
+<thlogic>
+    <attr sel="#headId" th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#title" th:text="#{game.title}"/>
+    <attr sel="#init-props" th:with="play=${T(osvaldas.games.util.GameMappings).PLAY}"/>
+    <attr sel="#game-form" th:href="@{__${play}__}" th:text="#{game.play}"/>
+    <attr sel="#footerId" th:replace="~{fragments/footer :: footer}"/>
+</thlogic>

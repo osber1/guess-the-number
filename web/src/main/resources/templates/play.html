@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game</title>
 </head>
 <body>
-<div align="center"
-     th:with="play=${T(osvaldas.games.util.GameMappings).PLAY},
-     mainMsg=${T(osvaldas.games.util.AttributeNames).MAIN_MESSAGE},
-     resultMsg=${T(osvaldas.games.util.AttributeNames).RESULT_MESSAGE}">
-    <h1>Guess the Number Game</h1>
-    <h3 th:text="${__${mainMsg}__}">
+<div align="center" id="init-props">
+    <h1 id="game-title">Guess the Number Game</h1>
+    <h3 id="main-message">
         Main Message Content
     </h3>
-    <h3 th:text="${__${resultMsg}__}">
+    <h3 id="result-message">
         Result Message Content
     </h3>
 
-    <form th:action="@{__${play}__}"
+    <form id="game-form"
           action="play"
           method="post">
-        <label for="guess">Enter your guess</label>
+        <label id="enter-guess" for="guess">Enter your guess</label>
         <input id="guess" type="number" name="guess"/>
-        <input type="submit" value="Submit"/>
+        <input id="submit" type="submit" value="Submit"/>
     </form>
 
-    <footer th:replace="~{fragments/footer :: footer}">
+    <footer id="footerId">
         <p>Footer goes here</p>
     </footer>
 </div>
